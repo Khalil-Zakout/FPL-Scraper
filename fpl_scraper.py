@@ -1,4 +1,6 @@
+import datetime
 import time
+import openpyxl
 import matplotlib.pyplot as plt
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -80,6 +82,7 @@ def scrape_players_scores_data(driver, URL):
     driver.quit()
 
 
+
 def get_players_final_score(filters_data, players_scores_data):
     players_final_score = dict()
     filters = ["Points Per Game","Event Points","Form","Value Form","EP Next","ICT Index","BPS"]
@@ -101,32 +104,75 @@ def get_players_final_score(filters_data, players_scores_data):
 
 
 
-URL = r"https://www.fplform.com/fpl-player-data"
-driver = driver_setup()
+def exporting_to_Excel(players_final_score):
+    while True:
+        choice = input("Do You Want To Export Players' Data Into Excel ? (Y/N):")
 
-filters_data = scrape_filters_data(driver, URL)
-players_scores_data = scrape_players_scores_data(driver, URL)
+        if choice.lower() == "y":
+            workbook = openpyxl.Workbook()
+            sheet = workbook.active
 
-# Getting Only The Highest 25 Players:
-result = dict(list(get_players_final_score(filters_data, players_scores_data).items())[:25])
+            # Adding a Header:
+            sheet.append(["Player","Final Score"])
 
-# Adding Data Labels To The Plot:
-plt.figure(figsize=(14,7))
-bars = plt.bar(result.keys(), result.values())
-for bar in bars:
-    y_value = bar.get_height()
-    plt.text(x= bar.get_x()+bar.get_width() / 2, y= y_value, s=y_value, ha= "center", va= "bottom")
+            # Writing Data To The Sheet:
+            for player, final_score in players_final_score.items():
+                sheet.append([player,final_score])
 
-    if y_value >=5:
-        bar.set_color("purple")
-    elif 4.5 <= y_value < 5:
-        bar.set_color("navy")
-    elif 4 <= y_value < 4.5:
-        bar.set_color("green")
-    else:
-        bar.set_color("orange")
+            # Saving The Data:
+            file_name = f"./Players Data/{datetime.date.today()}.xlsx"
+            workbook.save(file_name)
 
-plt.xticks(rotation = 40)
-plt.title("Best 25 Picks For Next Gameweek")
-plt.yticks(range(0,8))
-plt.show()
+            print("\nData Saved Successfully !!")
+            print("Here Is The Top 25 Picks For Next Gameweek . . .")
+            break
+
+        elif choice.lower() == "n":
+            print("No Problem, Here Is The Top 25 Picks For Next Gameweek . . .")
+            break
+        else:
+            print("Please Enter A Valid Option !!\n")
+
+
+
+def plotting_result(players_final_scores):
+    # Adding Data Labels To The Plot:
+    plt.figure(figsize=(14,7))
+    bars = plt.bar(players_final_scores.keys(),players_final_scores.values())
+    for bar in bars:
+        y_value = bar.get_height()
+        plt.text(x=bar.get_x() + bar.get_width() / 2,y=y_value,s=y_value,ha="center",va="bottom")
+
+        if y_value >= 5:
+            bar.set_color("purple")
+        elif 4.5 <= y_value < 5:
+            bar.set_color("navy")
+        elif 4 <= y_value < 4.5:
+            bar.set_color("green")
+        else:
+            bar.set_color("orange")
+
+    plt.xticks(rotation=40)
+    plt.title("Best 25 Picks For Next Gameweek")
+    plt.yticks(range(0,8))
+    plt.show()
+
+
+
+def main():
+    URL = r"https://www.fplform.com/fpl-player-data"
+    driver = driver_setup()
+
+    filters_data= scrape_filters_data(driver, URL)
+    players_scores_data= scrape_players_scores_data(driver, URL)
+
+    players_final_score= get_players_final_score(filters_data,players_scores_data)
+    top25_players_final_score= dict(list(get_players_final_score(filters_data,players_scores_data).items())[:25])
+
+    exporting_to_Excel(players_final_score)
+    plotting_result(top25_players_final_score)
+
+
+
+if __name__ == "__main__":
+    main()
