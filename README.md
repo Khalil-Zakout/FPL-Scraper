@@ -17,6 +17,7 @@ The script normalizes the scores for each player across these metrics, allowing 
 * Scrape each FPL player score across the filters.
 * Calculates a comprehensive final score for each player based on multiple filters.
 * Ranks players based on their normalized scores.
+* The ability to export all players final score into an Excel Sheet.
 * Visualizes the results using bar charts with data labels.
 * Color-coded bars to indicate performance levels (high, medium, low).
 
