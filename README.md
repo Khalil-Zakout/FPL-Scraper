@@ -7,16 +7,17 @@ The script normalizes the scores for each player across these metrics, allowing 
 
 ## Skills Demonstrated
 * **Web Scraping:** Utilizes **`Selenium`** to extract live player data from the FPL Form website.
+* **Data Wrangling:** Demonstrates proficiency in manipulating scraped data using **`Python`** 
 * **Data Analysis:** Normalizes and calculates scores for players based on various performance metrics.
 * **Data Visualization:** Implements **`Matplotlib`** to create informative bar charts that display player rankings.
-* **Python Programming:** Demonstrates proficiency in **`Python`** for **`Data Manipulation`** and analysis.
-
+  
 ## Features
 * Scrapes player performance data from the FPL Form website.
 * Calculates the minimum and maximum score for each filter to be able to normalize a score later on.
 * Scrape each FPL player score across the filters.
 * Calculates a comprehensive final score for each player based on multiple filters.
 * Ranks players based on their normalized scores.
+* The ability to export all players final score into an Excel Sheet.
 * Visualizes the results using bar charts with data labels.
 * Color-coded bars to indicate performance levels (high, medium, low).
 
