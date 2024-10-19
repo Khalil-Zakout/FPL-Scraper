@@ -41,5 +41,8 @@ cd FPL-Player-Score-Analyzer
 **5) View Results:** After running the script, a bar chart displaying player scores will be generated. The chart includes data labels and color-coded bars for easy analysis like this.
 
 ![Example](screenshot.png)
-   
+
+
+## Contact
+For any inquiries or feedback, please reach out to zakoutkhalil@gmail.com
 
