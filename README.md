@@ -23,10 +23,7 @@ The script normalizes the scores for each player across these metrics, allowing 
 
 ## Usage
 **1) Clone the Repository:**
-```
-git clone https://github.com/yourusername/FPL-Player-Score-Analyzer.git
-cd FPL-Player-Score-Analyzer
-```
+```git clone https://github.com/yourusername/FPL-Player-Score-Analyzer.git```
 
 **2) Install Required Packages:** Ensure you have Python installed, then install the required packages using pip:
 
