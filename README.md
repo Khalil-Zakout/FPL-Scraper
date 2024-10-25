@@ -23,10 +23,7 @@ The script normalizes the scores for each player across these metrics, allowing 
 
 ## Usage
 **1) Clone the Repository:**
-```
-git clone https://github.com/yourusername/FPL-Player-Score-Analyzer.git
-cd FPL-Player-Score-Analyzer
-```
+```git clone https://github.com/yourusername/FPL-Player-Score-Analyzer.git```
 
 **2) Install Required Packages:** Ensure you have Python installed, then install the required packages using pip:
 
@@ -41,5 +38,8 @@ cd FPL-Player-Score-Analyzer
 **5) View Results:** After running the script, a bar chart displaying player scores will be generated. The chart includes data labels and color-coded bars for easy analysis like this.
 
 ![Example](screenshot.png)
-   
+
+
+## Contact
+For any inquiries or feedback, please reach out to zakoutkhalil@gmail.com
 
