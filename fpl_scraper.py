@@ -155,6 +155,7 @@ def plotting_result(players_final_scores):
     plt.xticks(rotation=40)
     plt.title("Best 25 Picks For Next Gameweek")
     plt.yticks(range(0,8))
+    plt.grid(axis="y")
     plt.show()
 
 
