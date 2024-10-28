@@ -41,5 +41,4 @@ The script normalizes the scores for each player across these metrics, allowing 
 
 
 ## Contact
-For any inquiries or feedback, please reach out to zakoutkhalil@gmail.com
-
+For questions or contributions, please reach out to me at zakoutkhalil@gmail.com. You can also connect with me on [LinkedIn](https://www.linkedin.com/in/khalil-zakout/).
